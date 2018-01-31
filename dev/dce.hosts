@@ -1,4 +1,0 @@
-[all:vars]
-ansible_user=root
-[controller]
-192.168.130.11

@@ -1,1 +1,10 @@
-# system_security
+## 部署前准备 ##
+- 配置主机列表**dev/hosts**
+- 定义变量**dev/group_vars/all**
+
+-------------------------------------------------------------------------------
+
+#### 运行安全加固 ####
+```
+ansible-playbook -i dev/hosts install.yml 
+```
