@@ -1,0 +1,9 @@
+---
+- name: sysctl
+  hosts: 
+    - all
+  roles:
+    - sysctl
+  vars_files:
+    - dev/group_vars/all
+  tags: sysctl

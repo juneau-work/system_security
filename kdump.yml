@@ -1,0 +1,9 @@
+---
+- name: kdump
+  hosts: 
+    - all
+  roles:
+    - kdump
+  vars_files:
+    - dev/group_vars/all
+  tags: kdump

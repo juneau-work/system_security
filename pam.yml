@@ -1,0 +1,9 @@
+---
+- name: pam
+  hosts: 
+    - all
+  roles:
+    - pam
+  vars_files:
+    - dev/group_vars/all
+  tags: pam

@@ -1,0 +1,9 @@
+---
+- name: ssh
+  hosts: 
+    - all
+  roles:
+    - ssh
+  vars_files:
+    - dev/group_vars/all
+  tags: ssh

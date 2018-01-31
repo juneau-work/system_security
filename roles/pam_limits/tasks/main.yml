@@ -1,0 +1,36 @@
+---
+- pam_limits:
+    domain: "{{ item }}"
+    limit_type: '-'
+    limit_item: nofile
+    value: 65536
+  with_items:
+    - "{{ dce_user }}"
+    - root
+
+- pam_limits:
+    domain: "{{ item }}"
+    limit_type: '-'
+    limit_item: nproc
+    value: 16384
+  with_items:
+    - "{{ dce_user }}"
+    - root
+
+- pam_limits:
+    domain: "{{ item }}"
+    limit_type: '-'
+    limit_item: stack
+    value: 10240
+  with_items:
+    - "{{ dce_user }}"
+    - root
+
+- pam_limits:
+    domain: "{{ item }}"
+    limit_type: '-'
+    limit_item: memlock
+    value: unlimited
+  with_items:
+    - "{{ dce_user }}"
+    - root

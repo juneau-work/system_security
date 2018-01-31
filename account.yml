@@ -1,0 +1,9 @@
+---
+- name: account
+  hosts: 
+    - all
+  roles:
+    - account
+  vars_files:
+    - dev/group_vars/all
+  tags: account

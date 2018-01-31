@@ -1,0 +1,8 @@
+---
+- hosts: 
+    - all
+  roles:
+    - ntp
+  vars_files: 
+    - dev/group_vars/all
+  tags: ntp

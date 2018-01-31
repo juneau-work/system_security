@@ -1,0 +1,9 @@
+---
+- name: banner
+  hosts: 
+    - all
+  roles:
+    - banner
+  vars_files:
+    - dev/group_vars/all
+  tags: banner
