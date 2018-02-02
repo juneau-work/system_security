@@ -1,4 +1,11 @@
 ---
+- name: MemTotal(KB)
+  shell: grep 'MemTotal:' /proc/meminfo|awk '{print $2}'
+  register: result
+- set_fact: 
+    CONNTRACK_MAX={{ (result.stdout | float) * 1024 / 16384 / 2 }}
+    CONNTRACK_BUCKETS={{ (result.stdout| float) * 1024 / 16384 / 2 / 8 }}
+
 - sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"
@@ -17,13 +24,13 @@
     - { name: kernel.core_uses_pid, value: 1 }
     - { name: kernel.msgmnb, value: 65536 }
     - { name: kernel.msgmax, value: 65536 }
-    - { name: kernel.pid_max, value: 65534 }
+    - { name: kernel.pid_max, value: 65536 }
     - { name: net.core.rmem_default, value: 262144 }
     - { name: net.core.rmem_max, value: 4194304 }
     - { name: net.core.wmem_default, value: 262144 }
     - { name: net.core.wmem_max, value: 1048576 }
     - { name: net.core.netdev_max_backlog, value: 262144 }
-    - { name: net.core.optmem_max, value: 65535 }
+    - { name: net.core.optmem_max, value: 65536 }
     - { name: net.ipv4.ip_local_port_range, value: 9000 65500 }
     - { name: net.ipv4.conf.all.rp_filter, value: 0 }
     - { name: net.ipv4.conf.default.rp_filter, value: 0 }
@@ -47,6 +54,11 @@
     - { name: net.ipv4.tcp_sack, value: 0 }
     - { name: net.bridge.bridge-nf-call-iptables, value: 1 }
     - { name: net.bridge.bridge-nf-call-ip6tables, value: 1 }
-    - { name: net.netfilter.nf_conntrack_max, value: 2097152 }
     - { name: net.netfilter.nf_conntrack_tcp_timeout_established, value: 6000 }
-    - { name: net.netfilter.nf_conntrack_buckets, value: 524288 }
+    - { name: net.netfilter.nf_conntrack_max, value: "{{ CONNTRACK_MAX | int }}" }
+
+- name: nf_conntrack hashsize
+  modprobe:
+    name: nf_conntrack 
+    state: present
+    params: 'hashsize={{ CONNTRACK_BUCKETS | int }}'
