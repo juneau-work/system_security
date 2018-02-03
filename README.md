@@ -1,5 +1,5 @@
 ## 部署前准备 ##
-1. 己安装好centos 7.4操作系统
+1. 己安装好centos 7操作系统
 2. 准备ansible环境
 
 ``` shell
@@ -11,9 +11,9 @@ pip install ansible
 ```
 
 3.  配置主机列表**dev/hosts**
-all表示所有主机
+	- all表示所有主机
 4.  定义变量**dev/group_vars/all**
-> **注意:**对于敏感数据，如远程用户名密码及dce认证用户名密码, 请事先通过以下脚本生成密文
+> **注意:** 对于敏感数据，如远程用户名密码, 请事先通过以下脚本生成密文
 ``` shell
 VAULT_ID='myVAULT@2018'
 echo $VAULT_ID > ~/.vault_pass.txt
