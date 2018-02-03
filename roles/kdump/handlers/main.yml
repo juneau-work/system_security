@@ -4,3 +4,4 @@
     name: kdump 
     state: restarted
     enabled: yes
+  ignore_errors: true

@@ -6,4 +6,3 @@
 - import_playbook: pam.yml
 - import_playbook: pam_limits.yml
 - import_playbook: kdump.yml
-- import_playbook: ntp.yml

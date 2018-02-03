@@ -6,6 +6,20 @@
     CONNTRACK_MAX={{ (result.stdout | float) * 1024 / 16384 / 2 }}
     CONNTRACK_BUCKETS={{ (result.stdout| float) * 1024 / 16384 / 2 / 8 }}
 
+- name: modprobe modules
+  modprobe:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - nf_conntrack
+    - nf_conntrack_ipv4
+    - br_netfilter
+
+- name: load modules on boot
+  template:
+    src: netfilter.conf.j2
+    dest: /etc/modules-load.d/netfilter.conf
+
 - name: nf_conntrack hashsize
   modprobe:
     name: nf_conntrack 
@@ -14,8 +28,8 @@
 
 - name: nf_conntrack hashsize persistence
   template:
-    src: iptables.conf.j2
-    dest: /etc/modprobe.d/iptables.conf
+    src: netfilter_parameter.conf.j2
+    dest: /etc/modprobe.d/netfilter_parameter.conf
 
 - sysctl:
     name: "{{ item.name }}"
