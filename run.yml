@@ -1,0 +1,8 @@
+---
+- import_playbook: account.yml
+- import_playbook: banner.yml
+- import_playbook: pam.yml
+- import_playbook: pam_limits.yml
+- import_playbook: kdump.yml
+- import_playbook: ssh.yml
+- import_playbook: sysctl.yml

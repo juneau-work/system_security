@@ -1,0 +1,19 @@
+---
+- name: stop kdump daemon
+  service:
+    name: kdump
+    enabled: no
+    state: stopped
+  ignore_errors: true
+
+- name: uninstall kdump
+  yum: 
+    name: kdump
+    state: absent
+
+- name: clear kdump file left
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /etc/kdump.conf

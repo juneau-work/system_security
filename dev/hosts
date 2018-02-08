@@ -4,6 +4,5 @@ ansible_password={{ vault_ansible_password }}
 ansible_connection=paramiko
 
 [all]
-192.168.130.11
-192.168.130.12
-192.168.130.13
+192.168.4.210
+192.168.4.211

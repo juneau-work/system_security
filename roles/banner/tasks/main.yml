@@ -1,12 +1,3 @@
 ---
-- name: sync issue & issue.net & motd
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    owner: root
-    group: root
-    mode: 0644
-  with_items:
-    - { src: 'issue', dest: '/etc/issue' }
-    - { src: 'issue.net', dest: '/etc/issue.net' }
-    - { src: 'motd', dest: '/etc/motd' }
+- import_tasks: banner_{{ install_or_uninstall }}.yml
+  tags: banner

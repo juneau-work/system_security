@@ -1,0 +1,19 @@
+---
+- name: install kdump
+  yum: 
+    name: kexec-tools
+    state: present
+    update_cache: yes
+
+- name: systemd daemon-reload
+  systemd:
+    daemon-reload: yes
+
+- name: sync conf
+  template:
+    src: kdump.conf.j2
+    dest: /etc/kdump.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart kdump
