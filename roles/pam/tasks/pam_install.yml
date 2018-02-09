@@ -28,12 +28,12 @@
     module_arguments: "{{ item.module_arguments }}"
     state: "{{ item.state }}"
   with_items:
-    - { 'name': system-auth, 'type': auth, 'control': required , 'module_path': pam_tally2.so, 'module_arguments': 'deny=3 unlock_time=180 quiet', 'state': updated }
-    - { 'name': system-auth, 'type': auth, 'control': required , 'module_path': pam_faillock.so, 'module_arguments': 'preauth silent deny=3 unlock_time=604800 fail_interval=900', 'state': updated }
-    - { 'name': system-auth, 'type': password, 'control': requisite, 'module_path': pam_cracklib.so, 'module_arguments': 'try_first_pass retry=3 type= ucredit=-1 lcredit=-1 ocredit=-1 dcredit=-1 minlen=8', 'state': updated }
-    - { 'name': password-auth, 'type': auth, 'control': required , 'module_path': pam_tally2.so, 'module_arguments': 'deny=3 unlock_time=180 quiet', 'state': updated }
-    - { 'name': password-auth, 'type': auth, 'control': required , 'module_path': pam_faillock.so, 'module_arguments': 'preauth silent deny=3 unlock_time=604800 fail_interval=900', 'state': updated }
-    - { 'name': password-auth, 'type': password, 'control': requisite , 'module_path': pam_cracklib.so, 'module_arguments': 'try_first_pass retry=3 type= ucredit=-1 lcredit=-1 ocredit=-1 dcredit=-1 minlen=8', 'state': updated }
+    - { 'name': system-auth, 'type': auth, 'control': required , 'module_path': pam_tally2.so, 'module_arguments': 'deny=5 unlock_time=60 quiet', 'state': updated }
+    - { 'name': system-auth, 'type': auth, 'control': required , 'module_path': pam_faillock.so, 'module_arguments': 'preauth silent deny=5 unlock_time=604800 fail_interval=900', 'state': updated }
+    - { 'name': system-auth, 'type': password, 'control': requisite, 'module_path': pam_cracklib.so, 'module_arguments': 'try_first_pass retry=5 type= ucredit=-1 lcredit=-1 ocredit=-1 dcredit=-1 minlen=8', 'state': updated }
+    - { 'name': password-auth, 'type': auth, 'control': required , 'module_path': pam_tally2.so, 'module_arguments': 'deny=5 unlock_time=60 quiet', 'state': updated }
+    - { 'name': password-auth, 'type': auth, 'control': required , 'module_path': pam_faillock.so, 'module_arguments': 'preauth silent deny=5 unlock_time=604800 fail_interval=900', 'state': updated }
+    - { 'name': password-auth, 'type': password, 'control': requisite , 'module_path': pam_cracklib.so, 'module_arguments': 'try_first_pass retry=5 type= ucredit=-1 lcredit=-1 ocredit=-1 dcredit=-1 minlen=8', 'state': updated }
     - { 'name': su, 'type': auth, 'control': sufficient , 'module_path': pam_wheel.so, 'module_arguments': 'trust use_uid', 'state': updated }
 
 - name: fix /etc/pam.d/su pamd bug

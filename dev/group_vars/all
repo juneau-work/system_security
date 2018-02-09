@@ -2,5 +2,5 @@ ntp_server: time.nist.gov
 
 dce_group: dce
 dce_user: dce
-dce_user_password: $6$Z1zd7QGQEy82LlP.$VKyACpa3yCKpBuQZMUs9o8RYQ/Abm/tViM7zaUrah78t35wi2OCqOaZ45nL7J4SErLiQGgOcMTxn3TDFCuoxd0
+dce_user_password: $6$nkHK1Ks0SYg84Bwq$m.7KetV9HzG29abFWYZeBySvdbRhySMlXJdA7PGWXRSsvQz/QcDtUmw7AVAzLVGRAoaAvNW250E2zDKmwwuF8
 # hash密码生成命令python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.using(rounds=5000).hash(getpass.getpass())"

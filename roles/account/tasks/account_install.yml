@@ -26,7 +26,7 @@
     - { 'name': '{{ dce_user }}', 'shell': /bin/bash, 'groups': '{{ dce_group }}', 'password': '{{ dce_user_password }}' }
 
 - name: password expires
-  shell: chage -m 1 -M 90 -W 7 -I 3 {{ item }}
+  shell: chage -m 0 -M 90 -W 7 -I 3 {{ item }}
   with_items:
     - "{{ dce_user }}"
   ignore_errors: true

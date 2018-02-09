@@ -1,0 +1,10 @@
+---
+- name: sudo
+  hosts: 
+    - all
+  roles:
+    - sudo
+  vars_files:
+    - dev/group_vars/all
+    - dev/group_vars/vault
+  tags: sudo
