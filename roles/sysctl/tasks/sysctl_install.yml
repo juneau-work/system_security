@@ -79,4 +79,5 @@
     - { name: net.bridge.bridge-nf-call-ip6tables, value: 1 }
     - { name: net.netfilter.nf_conntrack_tcp_timeout_established, value: 6000 }
     - { name: net.netfilter.nf_conntrack_max, value: "{{ CONNTRACK_MAX | int }}" }
+    - { name: vm.max_map_count, value: 262144 }
 
