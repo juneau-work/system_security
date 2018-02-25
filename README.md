@@ -31,3 +31,9 @@ ansible-vault encrypt_string --vault-id ~/.vault_pass.txt $ANSIBLE_PASSWORD --na
 > ansible-playbook -i dev/hosts --vault-password-file ~/.vault_pass.txt run.yml --extra-vars install_or_uninstall=**install**
 #### 清除安全加固 ####
 > ansible-playbook -i dev/hosts --vault-password-file ~/.vault_pass.txt run.yml --extra-vars install_or_uninstall=**uninstall**
+
+-------------------------------------------------------------------------------
+
+## 部署后 ##
+**注意:** kdump需要系统重启后才生效，系统重启请谨慎操作
+> ansible-playbook -i dev/hosts --vault-password-file ~/.vault_pass.txt reboot.yml

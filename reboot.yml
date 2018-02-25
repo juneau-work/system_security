@@ -1,0 +1,11 @@
+---
+- hosts: 
+    - all
+  vars_files: 
+    - dev/group_vars/all
+    - dev/group_vars/vault
+  tags: reboot
+  tasks:
+    - name: system reboot 
+      shell: reboot
+      ignore_errors: true
