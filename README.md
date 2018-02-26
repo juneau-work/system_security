@@ -35,5 +35,5 @@ ansible-vault encrypt_string --vault-id ~/.vault_pass.txt $ANSIBLE_PASSWORD --na
 -------------------------------------------------------------------------------
 
 ## 部署后 ##
-**注意:** kdump需要系统重启后才生效，系统重启请谨慎操作
+**注意:** kdump可能需要重启后才生效，系统重启请谨慎操作
 > ansible-playbook -i dev/hosts --vault-password-file ~/.vault_pass.txt reboot.yml
