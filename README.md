@@ -28,9 +28,9 @@ ansible-vault encrypt_string --vault-id ~/.vault_pass.txt $ANSIBLE_PASSWORD --na
 -------------------------------------------------------------------------------
 
 #### 运行安全加固 ####
-> ansible-playbook -i dev/hosts --vault-password-file ~/.vault_pass.txt run.yml --extra-vars install_or_uninstall=**install**
+> ansible-playbook -i dev/hosts --vault-password-file ~/.vault_pass.txt run.yml --extra-vars install_or_uninstall=install
 #### 清除安全加固 ####
-> ansible-playbook -i dev/hosts --vault-password-file ~/.vault_pass.txt run.yml --extra-vars install_or_uninstall=**uninstall**
+> ansible-playbook -i dev/hosts --vault-password-file ~/.vault_pass.txt run.yml --extra-vars install_or_uninstall=uninstall
 
 -------------------------------------------------------------------------------
 
