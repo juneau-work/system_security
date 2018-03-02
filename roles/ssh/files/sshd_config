@@ -5,6 +5,7 @@ SyslogFacility AUTHPRIV
 AuthorizedKeysFile	.ssh/authorized_keys
 PasswordAuthentication yes
 ChallengeResponseAuthentication no
+UseDNS no
 GSSAPIAuthentication yes
 GSSAPICleanupCredentials no
 UsePAM yes
