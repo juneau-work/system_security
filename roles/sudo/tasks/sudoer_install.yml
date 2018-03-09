@@ -1,0 +1,12 @@
+---
+- name: add sudoers 
+  lineinfile:
+    path: /etc/sudoers.d/{{ item.user }}
+    line: '{{ item.user }}    ALL=(ALL)       ALL, !SU_ROOT'
+    owner: root
+    group: root
+    mode: 0400
+    create: yes
+    validate: '/usr/sbin/visudo -cf %s'
+  with_items:
+    - { 'user': '{{ dce_user }}' }

@@ -1,17 +1,2 @@
 ---
-- name: remove sudoers Cmnd_Alias 
-  lineinfile:
-    path: /etc/sudoers
-    regexp: '^Cmnd_Alias SU_ROOT = '
-    state: absent
-    owner: root
-    group: root
-    mode: 0400
-    backup: yes
-
-- name: remove sudoers 
-  file:
-    path: /etc/sudoers.d/{{ item }}
-    state: absent
-  with_items:
-    - '{{ dce_user }}'
+- include_tasks: sudo_conf_uninstall.yml

@@ -1,0 +1,7 @@
+---
+- name: remove sudoers 
+  file:
+    path: /etc/sudoers.d/{{ item }}
+    state: absent
+  with_items:
+    - '{{ dce_user }}'

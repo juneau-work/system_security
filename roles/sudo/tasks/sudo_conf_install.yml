@@ -1,0 +1,10 @@
+---
+- name: sudoers Cmnd_Alias 
+  lineinfile:
+    path: /etc/sudoers
+    line: 'Cmnd_Alias SU_ROOT = /usr/bin/su, /bin/sudo -[is], /usr/bin/passwd *root*, /bin/bash'
+    owner: root
+    group: root
+    mode: 0400
+    backup: yes
+    validate: '/usr/sbin/visudo -cf %s'
