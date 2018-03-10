@@ -15,7 +15,7 @@ pip install ansible
 4. 定义变量**dev/group_vars/all**
 > **注意:** 对于敏感数据，如远程用户名密码, 请事先通过以下脚本生成密文
 ``` shell
-cat <<EOF > vault.sh
+cat <<'EOF' > vault.sh
 VAULT_ID='myVAULT@2018'
 echo $VAULT_ID > ~/.vault_pass.txt
 

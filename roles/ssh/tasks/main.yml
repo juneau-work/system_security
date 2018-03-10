@@ -1,10 +1,13 @@
 ---
-- name: sync sshd_config
-  copy:
-    src: sshd_config
-    dest: /etc/ssh/sshd_config
+- name: update sshd_config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "{{ item }}"
     owner: root
     group: root
-    mode: 0644
+    mode: 0600
     backup: yes
-  notify: restart sshd
+  with_items:
+    - "UseDNS no"
+    - "Banner /etc/issue"
+
