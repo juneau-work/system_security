@@ -1,0 +1,3 @@
+---
+- import_tasks: global_{{ install_or_uninstall }}.yml
+  tags: global

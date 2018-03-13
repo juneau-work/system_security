@@ -1,16 +1,5 @@
 ---
-- name: remove users
-  user:
-    name: "{{ item }}"
-    state: absent
-    remove: yes
-  with_items:
-    - "{{ dce_user }}"
-
-- name: remove groups
-  group:
-    name: "{{ item }}"
-    state: absent
-  with_items:
-    - "{{ dce_group }}"
-            
+- include_tasks: pwquality_uninstall.yml
+  tags: pwquality
+  #- include_tasks: chattr_uninstall.yml
+  #  tags: chattr

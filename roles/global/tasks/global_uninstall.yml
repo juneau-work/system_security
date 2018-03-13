@@ -1,0 +1,5 @@
+---
+- include_tasks: login.defs_uninstall.yml
+  tags: login.defs
+- include_tasks: profile_uninstall.yml
+  tags: profile

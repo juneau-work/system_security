@@ -1,0 +1,32 @@
+---
+- name: add groups
+  group:
+    name: "{{ item }}"
+    state: present
+    system: yes
+  with_items:
+    - "{{ dce_group }}"
+            
+- name: account expires
+  shell: date -d "$(date +%Y%m%d -d '180 days')" +%s
+  register: account_expires
+  ignore_errors: true
+
+- name: add users
+  user:
+    name: "{{ item.name }}"
+    shell: "{{ item.shell }}"
+    groups: "{{ item.groups }}"
+    append: yes
+    system: yes
+    password: "{{ item.password }}"
+    expires: "{{ account_expires.stdout | float }}"
+    update_password: on_create
+  with_items:
+    - { 'name': '{{ dce_user }}', 'shell': /bin/bash, 'groups': '{{ dce_group }}', 'password': '{{ dce_user_password }}' }
+
+- name: password expires
+  shell: chage -m 0 -M 90 -W 7 -I 3 {{ item }}
+  with_items:
+    - "{{ dce_user }}"
+  ignore_errors: true

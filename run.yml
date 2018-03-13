@@ -1,4 +1,6 @@
 ---
+- import_playbook: account.yml
+- import_playbook: global.yml
 - import_playbook: sudo.yml
 - import_playbook: banner.yml
 - import_playbook: pam.yml

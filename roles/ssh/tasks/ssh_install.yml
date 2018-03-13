@@ -1,0 +1,13 @@
+---
+- name: update sshd_config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "{{ item }}"
+    owner: root
+    group: root
+    mode: 0600
+    backup: yes
+  with_items:
+    - "UseDNS no"
+    - "Banner /etc/issue"
+

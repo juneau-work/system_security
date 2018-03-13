@@ -1,0 +1,11 @@
+---
+- name: TMOUT
+  lineinfile:
+    path: /etc/profile
+    line: "{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+  with_items:
+    - 'export TMOUT=800'

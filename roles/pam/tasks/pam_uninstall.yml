@@ -13,4 +13,4 @@
     - { 'name': password-auth, 'type': password, 'control': requisite , 'module_path': pam_cracklib.so, 'state': absent}
     - { 'name': password-auth, 'type': auth, 'control': required , 'module_path': pam_faillock.so, 'state': absent}
     - { 'name': password-auth, 'type': auth, 'control': required , 'module_path': pam_tally2.so, 'state': absent}
-    - { 'name': su, 'type': auth, 'control': required , 'module_path': pam_wheel.so, 'state': absent}
+    - { 'name': su, 'type': auth, 'control': sufficient, 'module_path': pam_wheel.so, 'state': absent}

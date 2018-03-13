@@ -1,0 +1,10 @@
+---
+- name: global
+  hosts: 
+    - all
+  roles:
+    - global
+  vars_files:
+    - dev/group_vars/all
+    - dev/group_vars/vault
+  tags: global

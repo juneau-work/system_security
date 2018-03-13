@@ -1,0 +1,18 @@
+---
+- name: /etc/security/pwquality.conf
+  lineinfile:
+    path: /etc/security/pwquality.conf
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - { regexp: ^minlen, line: minlen = 8 }
+    - { regexp: ^minclass, line: minclass = 3 }
+    - { regexp: ^maxrepeat, line: maxrepeat = 2 }
+    - { regexp: ^maxclassrepeat, line: maxclassrepeat = 4 }
+    - { regexp: ^lcredit, line: lcredit = -1 }
+    - { regexp: ^ucredit, line: ucredit = -1 }
+    - { regexp: ^dcredit, line: dcredit = -1 }
+    - { regexp: ^ocredit, line: ocredit = 0 }

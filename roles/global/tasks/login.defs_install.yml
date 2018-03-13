@@ -1,0 +1,15 @@
+---
+- name: /etc/login.defs
+  lineinfile:
+    path: /etc/login.defs
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - { regexp: ^PASS_MAX_DAYS, line: PASS_MAX_DAYS 100 }
+    - { regexp: ^PASS_MIN_LEN, line: PASS_MIN_LEN  7 }
+    - { regexp: ^PASS_MIN_DAYS, line: PASS_MIN_DAYS 7 }
+    - { regexp: ^PASS_WARN_AGE, line: PASS_WARN_AGE 30 }
+    - { regexp: ^UMASK, line: UMASK 027 }

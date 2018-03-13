@@ -1,0 +1,20 @@
+---
+- name: /etc/security/pwquality.conf
+  ini_file:
+    path: /etc/security/pwquality.conf
+    section: null
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+    owner: root
+    group: root
+    mode: 0644
+    state: absent
+  with_items:
+    - { option: minlen, value: 8 }
+    - { option: minclass, value: 3 }
+    - { option: maxrepeat, value: 2 }
+    - { option: maxclassrepeat, value: 4 }
+    - { option: lcredit, value: -1 }
+    - { option: ucredit, value: -1 }
+    - { option: dcredit, value: -1 }
+    - { option: ocredit, value: 0 }

@@ -7,7 +7,7 @@
     CONNTRACK_BUCKETS={{ (result.stdout| float) * 1024 / 16384 / 2 / 8 }}
 
 - sysctl:
-    name: "{{ item.name }}"
+    name: "{{ item }}"
     state: absent
   with_items:
     - vm.swappiness
@@ -29,6 +29,8 @@
     - net.core.netdev_max_backlog
     - net.core.optmem_max
     - net.ipv4.ip_local_port_range
+    - net.ipv4.conf.all.send_redirects
+    - net.ipv4.conf.all.accept_redirects
     - net.ipv4.conf.all.rp_filter
     - net.ipv4.conf.default.rp_filter
     - net.ipv4.conf.default.accept_source_route
@@ -52,6 +54,7 @@
     - net.bridge.bridge-nf-call-ip6tables
     - net.netfilter.nf_conntrack_tcp_timeout_established
     - net.netfilter.nf_conntrack_max
+    - vm.max_map_count
 
 - name: disable modules load onboot
   file:

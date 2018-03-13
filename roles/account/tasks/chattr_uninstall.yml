@@ -1,0 +1,13 @@
+---
+- name: chattr -i /etc/shadow
+  file:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "{{ item.mode }}"
+    attributes: ""
+  with_items:
+    - { path: /etc/passwd, mode: '0644' }
+    - { path: /etc/group, mode: '0644' }
+    - { path: /etc/shadow, mode: '0000' }
+    - { path: /etc/gshadow, mode: '0000' }

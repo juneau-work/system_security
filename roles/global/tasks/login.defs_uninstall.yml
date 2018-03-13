@@ -1,0 +1,15 @@
+---
+- name: /etc/login.defs
+  lineinfile:
+    path: /etc/login.defs
+    regexp: "^{{ item }}"
+    state: absent
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - PASS_MAX_DAYS
+    - PASS_MIN_LEN
+    - PASS_MIN_DAYS
+    - PASS_WARN_AGE
+    - UMASK
