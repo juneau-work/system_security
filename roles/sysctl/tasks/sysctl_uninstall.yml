@@ -50,6 +50,9 @@
     - net.ipv4.tcp_tw_reuse
     - net.ipv4.tcp_fin_timeout
     - net.ipv4.tcp_keepalive_time
+    - net.ipv4.neigh.default.gc_thresh1
+    - net.ipv4.neigh.default.gc_thresh2
+    - net.ipv4.neigh.default.gc_thresh3
     - net.bridge.bridge-nf-call-iptables
     - net.bridge.bridge-nf-call-ip6tables
     - net.netfilter.nf_conntrack_tcp_timeout_established

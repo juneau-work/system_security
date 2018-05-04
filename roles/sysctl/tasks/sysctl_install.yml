@@ -77,6 +77,9 @@
     - { name: net.ipv4.tcp_tw_reuse, value: 1 }
     - { name: net.ipv4.tcp_fin_timeout, value: 1 }
     - { name: net.ipv4.tcp_keepalive_time, value: 30 }
+    - { name: net.ipv4.neigh.default.gc_thresh1, value: 80000 }
+    - { name: net.ipv4.neigh.default.gc_thresh2, value: 90000 }
+    - { name: net.ipv4.neigh.default.gc_thresh3, value: 100000 }
     - { name: net.bridge.bridge-nf-call-iptables, value: 1 }
     - { name: net.bridge.bridge-nf-call-ip6tables, value: 1 }
     - { name: net.netfilter.nf_conntrack_tcp_timeout_established, value: 6000 }
