@@ -8,7 +8,7 @@
     group: root
     mode: 0644
   with_items:
-    - { regexp: ^PASS_MAX_DAYS, line: PASS_MAX_DAYS 100 }
+    - { regexp: ^PASS_MAX_DAYS, line: PASS_MAX_DAYS 99999 }
     - { regexp: ^PASS_MIN_LEN, line: PASS_MIN_LEN  7 }
     - { regexp: ^PASS_MIN_DAYS, line: PASS_MIN_DAYS 7 }
     - { regexp: ^PASS_WARN_AGE, line: PASS_WARN_AGE 30 }
