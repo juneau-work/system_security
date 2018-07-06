@@ -8,4 +8,4 @@
     mode: 0644
     backup: yes
   with_items:
-    - 'export TMOUT=800'
+    - 'export TMOUT=1800'
