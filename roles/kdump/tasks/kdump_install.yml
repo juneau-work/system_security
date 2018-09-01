@@ -1,11 +1,12 @@
 ---
-- name: crashkernel=256M
+- name: crashkernel=512M-2G:64M,2G-:256M
   lineinfile:
     path: /etc/default/grub
-    line: 'GRUB_CMDLINE_LINUX_DEFAULT="crashkernel=256M"'
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="crashkernel=512M-2G:64M,2G-:256M"'
 
 - name: update grub.cfg
-  shell: grub2-mkconfig -o /boot/grub2/grub.cfg
+  shell: grub2-mkconfig -o /boot/grub2/grub.cfg ; grub2-mkconfig -o /boot/efi/EFI/Centos/grub.cfg
+  ignore_errors: true
 
 - name: install kdump
   yum: 
