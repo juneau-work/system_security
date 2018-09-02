@@ -1,5 +1,7 @@
 ---
 - include_tasks: pwquality_install.yml
   tags: pwquality
+- include_tasks: add_account_install.yml
+  tags: add_account
   #- include_tasks: chattr_install.yml
   #  tags: chattr

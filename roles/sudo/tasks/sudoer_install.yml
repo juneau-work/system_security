@@ -9,4 +9,4 @@
     create: yes
     validate: '/usr/sbin/visudo -cf %s'
   with_items:
-    - { 'user': '{{ dce_user }}' }
+    "{{ new_users }}"
