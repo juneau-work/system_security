@@ -37,7 +37,7 @@
     state: present
     reload: yes
   with_items:
-    - { name: vm.swappiness, value: 5 }
+    - { name: vm.swappiness, value: 0 }
     - { name: fs.file-max, value: 6553600 }
     - { name: fs.aio-max-nr, value: 1048576 }
     - { name: kernel.shmall, value: 2097152 }
