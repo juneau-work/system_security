@@ -38,6 +38,7 @@
     reload: yes
   with_items:
     - { name: vm.swappiness, value: 0 }
+    - { name: fs.may_detach_mounts, value: 1 }
     - { name: fs.file-max, value: 6553600 }
     - { name: fs.aio-max-nr, value: 1048576 }
     - { name: kernel.shmall, value: 2097152 }

@@ -11,6 +11,7 @@
     state: absent
   with_items:
     - vm.swappiness
+    - fs.may_detach_mounts
     - fs.file-max
     - fs.aio-max-nr
     - kernel.shmall
