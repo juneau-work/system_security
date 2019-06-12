@@ -5,7 +5,7 @@
     line: 'GRUB_CMDLINE_LINUX_DEFAULT="crashkernel=512M-2G:64M,2G-:256M"'
 
 - name: update grub.cfg
-  shell: grub2-mkconfig -o /boot/grub2/grub.cfg ; grub2-mkconfig -o /boot/efi/EFI/Centos/grub.cfg
+  shell: grub2-mkconfig -o /boot/grub2/grub.cfg || grub2-mkconfig -o /boot/efi/EFI/Centos/grub.cfg
   ignore_errors: true
 
 - name: install kdump
